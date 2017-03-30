@@ -16,8 +16,8 @@ public class ItemGenerator : MonoBehaviour {
     private bool deskLive = false;
     private bool hartLive = false;
 
-    private float[] positionX = { -1.3f, 1.7f};
-    private float[] positionY = { 10f, 12f, 14f, 16f, 18f};
+    private float[] positionX = { -1f, 1.5f};
+    private float[] positionY = { 10f, 12f, 14f, 16f, 18f, 20f, 22f, 24f};
     private int numX;
     private int numY;
 
@@ -59,31 +59,36 @@ public class ItemGenerator : MonoBehaviour {
 
     void ItemGenerat()
     {
+
+        int offsetY;
         
         if (baketuLive == false)
         {
             numX = Random.Range(0, 2);
-            numY = Random.Range(0, 5);
+            numY = Random.Range(0, 4);
+            offsetY = Random.Range(-2, 2);
 
             baketu = Instantiate(baketuPrefab) as GameObject;
-            baketu.transform.position = new Vector2( positionX[numX], positionY[numY]);
+            baketu.transform.position = new Vector2( positionX[numX], positionY[numY] + offsetY);
             baketuLive = true;
         }
 
         if (deskLive == false)
         {
             numX = Random.Range(0, 2);
-            numY = Random.Range(0, 5);
+            numY = Random.Range(0, 4);
+            offsetY = Random.Range(-2, 2);
 
             desk = Instantiate(deskPrefab) as GameObject;
-            desk.transform.position = new Vector2( positionX[numX], positionY[numY]);
+            desk.transform.position = new Vector2( positionX[numX], positionY[numY] + offsetY);
             deskLive = true;
         }
 
         if(hartLive == false)
         {
             numX = Random.Range(0, 2);
-            numY = Random.Range(0, 5);
+            numY = Random.Range(0, 7);
+            offsetY = Random.Range(-2, 2);
 
             hartLive = Instantiate(hartPrefab) as GameObject;
             hartPrefab.transform.position = new Vector2(positionX[numX], positionY[numY]);
