@@ -33,5 +33,9 @@ public class MapGenerator : MonoBehaviour {
         {
             collider.transform.position = new Vector2( collider.transform.position.x, 12);
         }
+        else
+        {
+            Destroy(collider.gameObject);
+        }
     }
 }
