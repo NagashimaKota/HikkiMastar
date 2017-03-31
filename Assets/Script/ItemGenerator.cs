@@ -12,9 +12,9 @@ public class ItemGenerator : MonoBehaviour {
     private GameObject desk;
     private GameObject hart;
 
-    private bool baketuLive = false;
-    private bool deskLive = false;
-    private bool hartLive = false;
+    public bool baketuLive = false;
+    public bool deskLive = false;
+    public bool hartLive = false;
 
     private float[] positionX = { -1f, 1.5f};
     private float[] positionY = { 10f, 12f, 14f, 16f, 18f, 20f, 22f, 24f};

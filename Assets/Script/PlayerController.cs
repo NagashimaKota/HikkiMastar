@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	private float leftPosition = -1.0f;
+    public GameObject firePrefab;
+    public GameObject icePrefab;
+
+    private GameObject fire;
+    private GameObject ice;
+
+    private float leftPosition = -1.0f;
     private float rightPosition = 1.5f;
+    private float[] attackOffset = { -0.05f, 0.4f};
     private int screenWidth = Screen.width / 2;
+    
 
     // Use this for initialization
 	void Start () {
@@ -39,6 +47,18 @@ public class PlayerController : MonoBehaviour {
                 this.transform.position = new Vector2(rightPosition, this.transform.position.y);
             }
         }
-		
+
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            fire = Instantiate(firePrefab) as GameObject;
+            fire.transform.position = new Vector2( this.transform.position.x + attackOffset[0], this.transform.position.y + attackOffset[1]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            ice = Instantiate(icePrefab) as GameObject;
+            ice.transform.position = new Vector2(this.transform.position.x + attackOffset[0], this.transform.position.y + attackOffset[1]);
+        }
 	}
 }

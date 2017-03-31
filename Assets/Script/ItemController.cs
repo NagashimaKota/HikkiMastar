@@ -15,4 +15,6 @@ public class ItemController : MonoBehaviour {
 	void Update () {
         this.transform.Translate(0, speed, 0);
 	}
+
+    
 }
