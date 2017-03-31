@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class StageSelect : MonoBehaviour {
 
-	// Use this for initialization
+    public AudioClip[] audio;
+    private AudioSource play;
+
+    // Use this for initialization
 	void Start () {
-		
+        play = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -23,6 +26,8 @@ public class StageSelect : MonoBehaviour {
 
     public void GameScene()
     {
+        play.clip = audio[0];
+        play.Play();
         SceneManager.LoadScene("GameScene");
     }
 
@@ -33,6 +38,8 @@ public class StageSelect : MonoBehaviour {
 
     public void EndGame()
     {
+        play.clip = audio[1];
+        play.Play();
         Application.Quit();
     }
 }
